@@ -46,7 +46,12 @@ describe('enhancer.js', function() {
     //stretch goal
     //testing the fourth function get()
     describe('get()', function () {
-        it.todo('')
+        it('if the enhancement level is 0, then the name stays the same', () => {
+            expect(enhancer.get({...item, enhancement: 0})).toEqual(item.name);
+        })
+        it('if the enhancement is greater than 0, change the name to include [+X] where x is the enhancement level', () => {
+            expect(enhancer.get({...item, enhancement: item.enhancement})).toEqual(`[+${item.enhancement}]${item.name}`)
+        })
     })
     //end of function testings
 })
